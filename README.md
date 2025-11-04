@@ -87,34 +87,10 @@ jupyter notebook notebooks/PartI_(final).ipynb
 
 ---
 
-## Key Results Summary
-
-### Group Test: User [1, 414, 599]
-
-| Metric | Value |
-|--------|-------|
-| Total Recommendations | 50+50+21 movies |
-| Common Movies | 14 |
-| Top Movie (All Methods) | Movie 1230 |
-
-### Method Comparison
-
-| Method | Movie 1230 | Movie 1276 | Philosophy |
-|--------|-----------|-----------|-----------|
-| Average | 4.75 | 4.38 | Democracy |
-| Least Misery | 4.50 | 3.76 | Protection |
-| Balancing | 4.70 | 4.26 | Consensus |
-
----
-
 ## References
 
 - **Masthoff, J. (2004).** Group Recommender Systems: Combining Individual Models
 - **MovieLens Dataset:** https://grouplens.org/datasets/movielens/
 - **Pearson Correlation:** Standard similarity measure in collaborative filtering
 
----
 
-## Contact
-
-For questions about this project, contact the students or refer to the presentation slides.
