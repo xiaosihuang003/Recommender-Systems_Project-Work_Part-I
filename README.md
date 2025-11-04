@@ -113,8 +113,4 @@ jupyter notebook notebooks/PartI_(final).ipynb
 - **MovieLens Dataset:** https://grouplens.org/datasets/movielens/
 - **Pearson Correlation:** Standard similarity measure in collaborative filtering
 
----
 
-## Contact
-
-For questions about this project, contact the students or refer to the presentation slides.
