@@ -23,7 +23,7 @@ If you need to download it manually:
 ### Step 2: Open Jupyter Notebook
 ```bash
 cd Project1
-jupyter notebook notebooks/PartI_(final).ipynb
+jupyter notebook notebooks/Part_1_user_based_collaborative.ipynb
 ```
 
 ### Step 3: Run All Cells
