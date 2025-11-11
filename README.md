@@ -23,9 +23,11 @@ If you need to download it manually:
 
 ### Step 2: Open Jupyter Notebook
 ```bash
-cd projects/notebooks
-jupyter notebook Part_1_user_based_collaborative.ipynb
-jupyter notebook Part_2_sequential_methods.ipynb
+# For Part I:
+cd projects/notebooks && jupyter notebook Part_1_user_based_collaborative.ipynb
+
+# For Part II: 
+cd projects/notebooks && jupyter notebook Part_2_sequential_methods.ipynb
 ```
 
 ### Step 3: Run All Cells
@@ -44,7 +46,7 @@ jupyter notebook Part_2_sequential_methods.ipynb
 ## Part I: User-Based Collaborative Filtering for Group Recommendations
 Part I project implements user-based collaborative filtering and group recommendation strategies using the MovieLens 100K dataset.
 
-## What Each Section Does
+## Implementation Details
 
 ### Part (a): Data Understanding
 - Loads MovieLens 100K dataset
@@ -102,4 +104,34 @@ Part I project implements user-based collaborative filtering and group recommend
 # 
 
 ## Part II: Sequential Group Recommendations with SDAA Framework
-Part II project implements a sequential group recommendation system using the **SDAA (Satisfaction and Disagreement Aware Aggregation)** framework, extending the traditional collaborative filtering to multi-round adaptive recommendations.
+Part II project implements a sequential group recommendation system using the **SDAA (Satisfaction and Disagreement Aware Aggregation)** framework, extending the Part I collaborative filtering to multi-round adaptive recommendations.
+
+## Implementation Details
+### Core Algorithm: SDAA Framework
+- **Dynamic Aggregation**: Adapts between Average and Least Misery methods based on user satisfaction
+- **Alpha Parameter**: Automatically adjusts from 0.2765 to 0.4415 across three rounds
+- **Reward Optimization**: Uses R_sd function to balance group satisfaction and fairness
+
+### Multi-Round Workflow
+1. **Round 1**: Initial recommendations with α=0.2765 (72% Average, 28% Least Misery)
+2. **Round 2**: Adjusted strategy with α=0.4216 based on Round 1 satisfaction disparity
+3. **Round 3**: Optimized balance with α=0.4415, achieving sustainable fairness
+
+### Technical Components
+- **State Management**: Tracks user satisfaction history across rounds
+- **Reinforcement Learning**: Implements SQUIRREL framework for continuous adaptation
+- **Fairness Mechanism**: Protects disadvantaged users while maintaining group engagement
+
+### Final Results
+- **Average Reward**: 0.6486 across three rounds
+- **Group Satisfaction**: 0.7285 (final)
+- **Group Disagreement**: 0.4170 (final)
+---
+## Part III:
+
+updating...
+
+---
+## Part IV:
+
+updating...
