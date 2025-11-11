@@ -1,19 +1,17 @@
-# Project 1: User-Based Collaborative Filtering for Group Recommendations
-
-## Project Overview
-This project implements user-based collaborative filtering and group recommendation strategies using the MovieLens 100K dataset.
+# Recommender Systems Project Work (Part I, Part II, Part III, Part IV)
 
 **Students:** Oskari Perikangas, Xiaosi Huang  
 **Course:** DATA.ML.360-2025-2026-1 Recommender Systems  
-**Date:** November 4, 2025
-
----
+**Date:** November 04, 2025 (Part I)
+**Date:** November 10, 2025 (Part II)
+**Date:** November xx, 2025 (Part III)
+**Date:** November xx, 2025 (Part IV)
 
 ## How to Run the Code
 
 ### Step 1: Download Dataset
 
-The MovieLens 100K dataset is already included in `data/ml-latest-small/`
+⚠️ The MovieLens 100K dataset is already included in `data/ml-latest-small/`
 
 If you need to download it manually:
 - Go to: https://grouplens.org/datasets/movielens/
@@ -22,8 +20,9 @@ If you need to download it manually:
 
 ### Step 2: Open Jupyter Notebook
 ```bash
-cd Project1
-jupyter notebook notebooks/Part_1_user_based_collaborative.ipynb
+cd projects/notebooks
+jupyter notebook Part_1_user_based_collaborative.ipynb
+jupyter notebook Part_2_sequential_methods.ipynb
 ```
 
 ### Step 3: Run All Cells
@@ -38,6 +37,9 @@ jupyter notebook notebooks/Part_1_user_based_collaborative.ipynb
 - Or click the ▶️ Run button
 
 ---
+
+## Part I: User-Based Collaborative Filtering for Group Recommendations
+Part I project implements user-based collaborative filtering and group recommendation strategies using the MovieLens 100K dataset.
 
 ## What Each Section Does
 
@@ -85,8 +87,6 @@ jupyter notebook notebooks/Part_1_user_based_collaborative.ipynb
 
 **Output:** Top 10 movies with disagreement levels
 
----
-
 ## References
 
 - **Masthoff, J. (2004).** Group Recommender Systems: Combining Individual Models
@@ -94,3 +94,9 @@ jupyter notebook notebooks/Part_1_user_based_collaborative.ipynb
 - **Pearson Correlation:** Standard similarity measure in collaborative filtering
 
 
+---
+
+# 
+
+## Part II: Sequential Group Recommendations with SDAA Framework
+Part II project implements a sequential group recommendation system using the **SDAA (Satisfaction and Disagreement Aware Aggregation)** framework, extending the traditional collaborative filtering to multi-round adaptive recommendations.
