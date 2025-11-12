@@ -98,34 +98,63 @@ Part I project implements user-based collaborative filtering and group recommend
 - **MovieLens Dataset:** https://grouplens.org/datasets/movielens/
 - **Pearson Correlation:** Standard similarity measure in collaborative filtering
 
-
 ---
 
-# 
+## Part II: Sequential Group Recommendations with SQUIRREL Framework
 
-## Part II: Sequential Group Recommendations with SDAA Framework
-Part II project implements a sequential group recommendation system using the **SDAA (Satisfaction and Disagreement Aware Aggregation)** framework, extending the Part I collaborative filtering to multi-round adaptive recommendations.
+Part II implements and compares three sequential group recommendation methods from the **SQUIRREL (Sequential Group Recommendation with Reinforcement Learning)** framework, extending Part I's collaborative filtering to multi-round adaptive recommendations.
+
 
 ## Implementation Details
-### Core Algorithm: SDAA Framework
-- **Dynamic Aggregation**: Adapts between Average and Least Misery methods based on user satisfaction
-- **Alpha Parameter**: Automatically adjusts from 0.2765 to 0.4415 across three rounds
-- **Reward Optimization**: Uses R_sd function to balance group satisfaction and fairness
 
-### Multi-Round Workflow
-1. **Round 1**: Initial recommendations with α=0.2765 (72% Average, 28% Least Misery)
-2. **Round 2**: Adjusted strategy with α=0.4216 based on Round 1 satisfaction disparity
-3. **Round 3**: Optimized balance with α=0.4415, achieving sustainable fairness
+### Three Methods Compared
 
-### Technical Components
-- **State Management**: Tracks user satisfaction history across rounds
-- **Reinforcement Learning**: Implements SQUIRREL framework for continuous adaptation
-- **Fairness Mechanism**: Protects disadvantaged users while maintaining group engagement
+1. **Average Method**
+   - Treats all users equally in every round
+   - Simple baseline for group aggregation
+   - May consistently disadvantage minority users
 
-### Final Results
-- **Average Reward**: 0.6486 across three rounds
-- **Group Satisfaction**: 0.7285 (final)
-- **Group Disagreement**: 0.4170 (final)
+2. **Least Misery Method**
+   - Focuses on the least satisfied user
+   - One user can act as veto
+   - May lower overall group satisfaction
+
+3. **SDAA (Satisfaction and Disagreement Aware Aggregation)** ⭐
+   - Dynamically adjusts user weights based on cumulative satisfaction
+   - Blends Average and Least Misery using alpha parameter
+   - Our main contribution: Added fairness weighting
+
+### SDAA Key Features
+
+- **State Tracking:** Satisfaction history for each user across rounds
+- **Fairness Weighting:** Lower satisfaction → Higher weight
+- **Dynamic Aggregation:** `score = (1-α) * weighted_avg + α * least`
+- **Reward Function:** SQUIRREL R_sd metric
+
+### Testing & Results
+
+- **Test Group:** Users [1, 414, 599]
+- **Popular Movies:** 882 movies (min_ratings=30)
+- **Rounds:** 10 sequential recommendation rounds
+- **Top-K:** 5 movies per round
+
+| Method          | Group Satisfaction | Group Disagreement | Avg Reward (R_sd) |
+|-----------------|-------------------|-------------------|-------------------|
+| Average         | 0.791             | 0.350             | 0.723             |
+| Least Misery    | 0.789             | 0.350             | 0.723             |
+| **SDAA**        | **0.791**         | **0.344**         | **0.736**         |
+
+**Summary:**
+- SDAA maintains same satisfaction as Average
+- SDAA reduces disagreement by 1.7%
+- SDAA achieves 1.8% higher reward
+- SDAA maintains highest reward across all rounds
+
+## References
+
+- **Stratigi, M., et al. (2020).** SQUIRREL: Sequential Group Recommendations with Reinforcement Learning
+- **MovieLens Dataset:** https://grouplens.org/datasets/movielens/
+
 ---
 ## Part III:
 
