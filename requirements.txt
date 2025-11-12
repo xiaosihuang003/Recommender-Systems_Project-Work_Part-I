@@ -1,0 +1,7 @@
+jupyterlab
+notebook
+numpy
+pandas
+scipy
+matplotlib
+jupyterlab-vim
