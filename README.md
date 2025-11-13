@@ -111,18 +111,16 @@ Part II implements and compares three sequential group recommendation methods fr
 
 1. **Average Method**
    - Treats all users equally in every round
-   - Simple baseline for group aggregation
    - May consistently disadvantage minority users
 
 2. **Least Misery Method**
    - Focuses on the least satisfied user
-   - One user can act as veto
-   - May lower overall group satisfaction
+   - One user can act as veto, may lower overall group satisfaction
 
-3. **SDAA (Satisfaction and Disagreement Aware Aggregation)** ⭐
+3. **SDAA (Satisfaction and Disagreement Aware Aggregation)** 
    - Dynamically adjusts user weights based on cumulative satisfaction
    - Blends Average and Least Misery using alpha parameter
-   - Our main contribution: Added fairness weighting
+   - Added fairness weighting
 
 ### SDAA Key Features
 
