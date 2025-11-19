@@ -152,8 +152,6 @@ Part II implements and compares three sequential group recommendation methods fr
 - **MovieLens Dataset:** https://grouplens.org/datasets/movielens/
 
 ---
-## Part III:
----
 
 ## Part III: Diverse Sequential Group Recommendations with DiGSFO
 
