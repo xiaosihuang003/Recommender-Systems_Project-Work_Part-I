@@ -196,7 +196,6 @@ Part III adds diversity control to sequential group recommendations, preventing 
 - **Lenzi, E., et al.** ADAPT: Fairness and Diversity in Sequential Group Recommendations
 - **MovieLens Dataset:** https://grouplens.org/datasets/movielens/
 ---
----
 
 ## Part IV: Counterfactual Explanations for Group Recommendations
 
