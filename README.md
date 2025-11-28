@@ -255,7 +255,7 @@ Part IV generates counterfactual explanations to help groups understand why spec
 > then **Like Water for Chocolate** would NOT be recommended."
 
 **Key Findings:**
-1. **Pareto Filtering:** 99.6% candidate reduction (1275→3-5)
+1. **Pareto Filtering:** (1275 → 3-5) 99.6% candidate reduction 
 2. **Fairness Achievement:** 5/6 perfect fairness, all above threshold
 3. **Minimality:** 1.5 items average (highly concise)
 4. **Efficiency:** Fast approximation reduced runtime from hours to minutes
