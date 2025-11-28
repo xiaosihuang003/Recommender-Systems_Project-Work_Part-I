@@ -195,9 +195,73 @@ Part III adds diversity control to sequential group recommendations, preventing 
 
 - **Lenzi, E., et al.** ADAPT: Fairness and Diversity in Sequential Group Recommendations
 - **MovieLens Dataset:** https://grouplens.org/datasets/movielens/
-
-
 ---
-## Part IV:
+---
 
-updating...
+## Part IV: Counterfactual Explanations for Group Recommendations
+
+Part IV generates counterfactual explanations to help groups understand why specific movies were recommended, ensuring fairness by avoiding single-user blame.
+
+## Implementation Details
+
+### Method: Grow & Prune with Pareto Filtering
+
+**Goal:** Generate explanations of the form:  
+*"If the group had NOT watched items A, then item B would NOT be recommended"*
+
+**Key Components:**
+
+1. **Item-Level Metrics** (Slides p.12-14)
+   - **Recognition:** Proportion of group members who rated the item
+   - **Rating:** Average group rating for the item
+   - **Influence:** Impact on target recommendation
+   - **Explanatory Power:** Causal strength (fast estimation via item-item similarity)
+
+2. **Fairness Constraint** (Slides p.16)
+   - Requires ≥67% of group members to contribute to explanation
+   - Prevents single-user blame
+
+3. **Pareto Filtering** (Slides p.18-19)
+   - Reduces candidates from ~1275 to 3-5 items
+   - Multi-objective optimization: recognition, rating, influence, explanatory power
+
+4. **Grow & Prune Algorithm** (Slides p.22)
+   - **GROW:** Add items until target disappears from top-N
+   - **PRUNE:** Remove redundant items while maintaining validity and fairness
+
+### Testing & Results
+
+**Setup:**
+- Test Group: Users [105, 305, 477] (81 common high-rated movies)
+- Recommender: Item-based KNN (k=50, RMSE=0.9700)
+- Tested: Top-10 recommendations
+
+| Metric              | Result      |
+|---------------------|-------------|
+| Success Rate        | 60% (6/10)  |
+| Explanation Size    | Mean=1.50   |
+| Fairness            | Mean=0.94   |
+| Explanatory Power   | Mean=0.725  |
+
+**Valid Explanations:**
+- Rank 4 (Hoop Dreams): 3 items, Fairness=1.0
+- Rank 5 (Return of the Pink Panther): 2 items, Fairness=1.0
+- Ranks 7-10: 1 item each, Fairness≥0.67
+
+**Failed Cases:**
+- Ranks 1-3, 6: Complex multi-factor reasoning beyond max_size=8
+
+**Example (Rank 10):**
+> "If the group had NOT watched **Full Metal Jacket** (U105:4.0★, U305:5.0★, U477:5.0★),  
+> then **Like Water for Chocolate** would NOT be recommended."
+
+**Key Findings:**
+1. **Pareto Filtering:** 99.6% candidate reduction (1275→3-5)
+2. **Fairness Achievement:** 5/6 perfect fairness, all above threshold
+3. **Minimality:** 1.5 items average (highly concise)
+4. **Efficiency:** Fast approximation reduced runtime from hours to minutes
+
+## References
+
+- **Stefanidis, K., & Stratigi, M. (2025).** Explaining Group Recommendations via Counterfactuals (Lecture slides, pages 12-22). DATA.ML.360 Recommender Systems, Tampere University.
+- **MovieLens Dataset:** https://grouplens.org/datasets/movielens/
